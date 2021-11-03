@@ -1,8 +1,15 @@
-# Entry point for the application.
-#from . import app    # For application discovery by the 'flask' command.
-#from . import views  # For import side-effects of setting up routes.
-import flask
-app = flask.Flask(__name__)
+from flask import Flask, render_template
 
-if __name__ == "__main__":
-    app.run(port=8080)
+# Replace the existing home function with the one below
+@app.route("/")
+def home():
+    return render_template("home.html")
+
+# New functions
+@app.route("/about/")
+def about():
+    return render_template("about.html")
+
+@app.route("/contact/")
+def contact():
+    return render_template("contact.html")
