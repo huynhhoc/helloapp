@@ -1,5 +1,6 @@
 from flask import Flask, render_template
 
+app = Flask(__name__)
 # Replace the existing home function with the one below
 @app.route("/")
 def home():
@@ -13,3 +14,9 @@ def about():
 @app.route("/contact/")
 def contact():
     return render_template("contact.html")
+
+if __name__ == "__main__":
+     #app.debug = False
+     #port = int(os.environ.get('PORT', 33507))
+     #waitress.serve(app, port=port)
+     app.run()
